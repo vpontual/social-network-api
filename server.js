@@ -1,15 +1,18 @@
+// Package Dependencies
 const express = require("express");
-const router = require("./routes");
+const routes = require("./routes");
 const db = require("./config/connection.js");
 
-const port = process.env.PORT || 3001;
+// Load environment variables
+require("dotenv").config();
 
+const port = process.env.PORT || 3001;
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/", router);
+app.use("/", routes);
 
 db.once("open", () => {
   app.listen(port, () => {
