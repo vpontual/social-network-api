@@ -1,3 +1,5 @@
+// User Routes
+
 // GET routes to return all users
 route.get("/users", getAllUsers);
 // GET routes to return a single user
@@ -8,6 +10,8 @@ route.post("/users", createUser);
 route.put("/users/:id", updateUser);
 // DELETE routes for users
 route.delete("/users/:id", deleteUser);
+
+// Friend Routes
 
 //POST routes for a user’s friend list
 route.post("/users/:userId/friends/:friendId", addFriend);

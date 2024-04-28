@@ -1,3 +1,5 @@
+// Thought Routes
+
 // Get routes to return all thoughts
 route.get("/thoughts", getAllThoughts);
 // GET routes to return a single thought
