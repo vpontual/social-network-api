@@ -1,14 +1,21 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+// const { User, Thought } = require("../models");
+// const { userData, thoughtData } = require("./data");
+
+// mongoose.connect("mongodb://localhost/my-social-network", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
+const db = require("../config/connection");
 const { User, Thought } = require("../models");
 const { userData, thoughtData } = require("./data");
 
-mongoose.connect("mongodb://localhost/my-social-network", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
 const seedDatabase = async () => {
   try {
+    await db.once("open", () => {
+      console.log("Connection has been established successfully.");
+    });
     // Remove existing data from the database
     await User.deleteMany({});
     await Thought.deleteMany({});
