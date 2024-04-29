@@ -1,19 +1,21 @@
-// User Routes
+const router = require("express").Router();
+const {
+  getAllUsers,
+  getUserById,
+  createUser,
+  updateUser,
+  deleteUser,
+  addFriend,
+  removeFriend,
+} = require("../../controllers/userController");
 
-// GET routes to return all users
-route.get("/users", getAllUsers);
-// GET routes to return a single user
-route.get("/users/:id", getSingleUser);
-// POST routes for users
-route.post("/users", createUser);
-// PUT routes for users
-route.put("/users/:id", updateUser);
-// DELETE routes for users
-route.delete("/users/:id", deleteUser);
+// GET, POST routes for users
+router.route("/").get(getAllUsers).post(createUser);
 
-// Friend Routes
+// GET, PUT, and DELETE routes for a single user
+router.route("/:userId").get(getUserById).put(updateUser).delete(deleteUser);
 
-//POST routes for a user’s friend list
-route.post("/users/:userId/friends/:friendId", addFriend);
-//DELETE routes for a user’s friend list
-route.delete("/users/:userId/friends/:friendId", removeFriend);
+// POST and DELETE routes for a user's friend list
+router.route("/:userId/friends/:friendId").post(addFriend).delete(removeFriend);
+
+module.exports = router;
