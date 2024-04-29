@@ -32,6 +32,16 @@ const getThoughtById = async (req, res) => {
 const createThought = async (req, res) => {
   try {
     const newThought = await Thought.create(req.body);
+
+    // If the request body includes reactions, associate them with the new thought
+    if (req.body.reactions && req.body.reactions.length > 0) {
+      newThought.reactions = req.body.reactions.map((reaction) => ({
+        ...reaction,
+        createdAt: new Date(),
+      }));
+      await newThought.save();
+    }
+
     const updatedUser = await User.findOneAndUpdate(
       { username: req.body.username },
       { $addToSet: { thoughts: newThought._id } },
