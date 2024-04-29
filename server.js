@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/", routes);
+app.use("/api", routes);
 
 db.once("open", () => {
   app.listen(port, () => {
