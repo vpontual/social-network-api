@@ -139,7 +139,7 @@ This will not be a model, but rather will be used as the `reaction` field's subd
 
 - `DELETE` to remove user by its `_id`
 
-**BONUS**: Remove a user's associated thoughts when deleted.
+(I am also removing a user's associated thoughts when a user is deleted.)
 
 ---
 

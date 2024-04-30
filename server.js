@@ -1,6 +1,6 @@
 // Package Dependencies
 const express = require("express");
-const routes = require("./routes");
+const routes = require("./routes/api");
 const db = require("./config/connection.js");
 
 // Load environment variables
