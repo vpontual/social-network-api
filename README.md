@@ -28,7 +28,7 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 ## Video Walkthrough
 
-You can see a demo of the app here:
+You can see a demo of the app here: https://youtu.be/F9SYi8adEmg
 
 In this video you will see:
 
